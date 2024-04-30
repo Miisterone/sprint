@@ -6,6 +6,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Set executable permissions for Maven Wrapper
+        run: chmod +x ./mvnw
+
       - name: Checkout code
         uses: actions/checkout@v2
 
