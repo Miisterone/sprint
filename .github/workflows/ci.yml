@@ -6,9 +6,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Set executable permissions for Maven Wrapper
-        run: chmod +x ./mvnw
-
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -17,13 +14,6 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-
-      - name: Cache Maven packages
-        uses: actions/cache@v2
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
 
       - name: Cache SonarQube packages
         uses: actions/cache@v2
